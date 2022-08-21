@@ -348,7 +348,7 @@ use IFRS\Models\ReportingPeriod;
 
 $period = ReportingPeriod::create([
     'period_count' => 1,
-    'year' => 2021,
+    'year' => 2022,
 ]);
 
 ```
@@ -358,9 +358,10 @@ The Income Statement (Profit and Loss):
 use IFRS\Reports\IncomeStatement;
 
 $incomeStatement = new IncomeStatement(
-    "2021-01-01",   // Report start date
-    "2021-12-31",   // Report end date
-)->getSections();// Fetch balances from the ledger and store them internally
+    "2022-01-01",   // Report start date
+    "2022-12-31",   // Report end date
+);
+$incomeStatement->getSections();// Fetch balances from the ledger and store them internally
 
 /**
 * this function is only for demonstration and
@@ -402,8 +403,9 @@ The Balance Sheet:
 use IFRS\Reports\BalanceSheet;
 
 $balanceSheet = new BalanceSheet(
-    "2021-12-31"  // Report end date
-)->getSections();
+    "2022-12-31"  // Report end date
+);
+$balanceSheet->getSections();
 
 /**
 * again to emphasize, this function is only for demonstration and
