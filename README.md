@@ -177,7 +177,17 @@ $inputVat = Vat::create([
     ])
 ]);
 ```
+We have now some Transactions in the Ledger, so lets generate some reports. First though, Reports require a reporting period:
 
+```php
+use IFRS\Models\ReportingPeriod;
+
+$period = ReportingPeriod::create([
+    'period_count' => 1,
+    'calendar_year' => 2022,
+]);
+
+```
 Now we'll set up some Accounts:
 
 ```php
@@ -341,17 +351,7 @@ echo $clientInvoice->clearedAmount(); //50
 echo $clientReceipt->balance(); //0: The Receipt has been assigned fully to the Invoice
 
 ```
-We have now some Transactions in the Ledger, so lets generate some reports. First though, Reports require a reporting period:
 
-```php
-use IFRS\Models\ReportingPeriod;
-
-$period = ReportingPeriod::create([
-    'period_count' => 1,
-    'year' => 2022,
-]);
-
-```
 The Income Statement (Profit and Loss):
 
 ```php
